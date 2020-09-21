@@ -1,0 +1,7 @@
+type User {
+  id: ID!
+  avatar: String
+  userId: String!
+  createdAt: String!
+  updatedAt: String!
+}
