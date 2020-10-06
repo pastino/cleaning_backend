@@ -3,6 +3,7 @@ import { GraphQLServer } from "graphql-yoga";
 import helmet from "helmet";
 import logger from "morgan";
 import schema from "./schema";
+import { uploadMiddleware, uploadController } from "./uploadPhoto";
 
 class App {
   public app: GraphQLServer;
@@ -13,8 +14,9 @@ class App {
     this.middlewares();
   }
   private middlewares = (): void => {
-    this.app.express.use(cors());
     this.app.express.use(logger("dev"));
+    this.app.express.post("/api/upload", uploadMiddleware, uploadController);
+    this.app.express.use(cors());
     this.app.express.use(helmet());
   };
 }

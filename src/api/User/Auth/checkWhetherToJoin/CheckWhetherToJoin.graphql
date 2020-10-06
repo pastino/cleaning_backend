@@ -1,0 +1,9 @@
+type CheckWhetherToJoinResponse {
+  ok: Boolean!
+  error: String
+  result: String!
+}
+
+type Query {
+  CheckWhetherToJoin(id: String!): CheckWhetherToJoinResponse!
+}

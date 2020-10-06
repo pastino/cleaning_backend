@@ -1,0 +1,8 @@
+type Post {
+  id: ID!
+  petType: String
+  title: String!
+  text: String!
+  createdAt: String
+  updatedAt: String
+}

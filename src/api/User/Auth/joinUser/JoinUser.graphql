@@ -1,0 +1,9 @@
+type JoinUserResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  JoinUser(id: String!, avatar: String, email: String): JoinUserResponse!
+}

@@ -2,3 +2,4 @@
 node_modules
 datamodel.prisma
 yarn.lock
+generated

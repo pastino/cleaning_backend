@@ -1,0 +1,12 @@
+type CreatePostResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  CreatePost(
+    petType: String
+    title: String!
+    text: String!
+  ): CreatePostResponse!
+}

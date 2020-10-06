@@ -1,3 +1,50 @@
+type CreatePostResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  CreatePost(petType: String, title: String!, text: String!): CreatePostResponse!
+  JoinUser(id: String!, avatar: String, email: String): JoinUserResponse!
+}
+
+type SeePostResponse {
+  ok: Boolean!
+  error: String
+  result: [Post]
+}
+
 type Query {
-  sayHello: String
+  SeePost(petType: String!, pageNumber: Int!, items: Int!): SeePostResponse!
+  CheckWhetherToJoin(id: String!): CheckWhetherToJoinResponse!
+}
+
+type Post {
+  id: ID!
+  petType: String
+  title: String!
+  text: String!
+  createdAt: String
+  updatedAt: String
+}
+
+type CheckWhetherToJoinResponse {
+  ok: Boolean!
+  error: String
+  result: String!
+}
+
+type JoinUserResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type User {
+  id: ID!
+  userId: String!
+  email: String
+  avatar: String
+  createdAt: String
+  updatedAt: String
 }
