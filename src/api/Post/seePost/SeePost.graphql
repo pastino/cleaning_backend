@@ -5,5 +5,5 @@ type SeePostResponse {
 }
 
 type Query {
-  SeePost(petType: String!, pageNumber: Int!, items: Int!): SeePostResponse!
+  SeePost: SeePostResponse!
 }

@@ -1,6 +1,15 @@
-import { CreatePostMutationArgs, CreatePostResponse } from "src/types/graph";
 import { Resolvers } from "src/types/resolvers";
 import { prisma } from "../../../../generated/prisma-client";
+
+export interface CreatePostMutationArgs {
+  title: string;
+  imageUrl: string;
+}
+
+export interface CreatePostResponse {
+  ok: boolean;
+  error: string | null;
+}
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -8,22 +17,12 @@ const resolvers: Resolvers = {
       _,
       args: CreatePostMutationArgs
     ): Promise<CreatePostResponse> => {
-      const { petType, title, text } = args;
+      const { imageUrl, title } = args;
       try {
-        let post;
-        if (petType === undefined) {
-          post = await prisma.createPost({
-            petType: null,
-            title,
-            text,
-          });
-        } else {
-          post = await prisma.createPost({
-            petType,
-            title,
-            text,
-          });
-        }
+        const post = await prisma.createPost({
+          imageUrl,
+          title,
+        });
         if (!post) {
           return {
             ok: false,

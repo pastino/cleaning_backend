@@ -1,9 +1,14 @@
 import { Resolvers } from "src/types/resolvers";
 import { prisma } from "../../../../../generated/prisma-client";
-import {
-  CheckWhetherToJoinQueryArgs,
-  CheckWhetherToJoinResponse,
-} from "../../../../types/graph";
+
+export interface CheckWhetherToJoinResponse {
+  ok: boolean;
+  error: string | null;
+  result: string;
+}
+export interface CheckWhetherToJoinQueryArgs {
+  id: string;
+}
 
 const resolvers: Resolvers = {
   Query: {

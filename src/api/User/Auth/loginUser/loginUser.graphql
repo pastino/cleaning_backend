@@ -1,0 +1,9 @@
+type LoginUserResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type Mutation {
+  JoinUser(email: String!, id: String, password: String): LoginUserResponse!
+}

@@ -1,4 +1,4 @@
-endpoint: https://us1.prisma.sh/taejun/pet_training_backend/dev
+endpoint: https://us1.prisma.sh/taejun/cleaning/dev
 datamodel: datamodel.prisma
 
 generate:

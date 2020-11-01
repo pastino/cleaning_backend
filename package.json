@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "pet training app (BackEnd)",
   "main": "index.js",
-  "repository": "https://github.com/pastino/pet_training_backend",
   "author": "Kim taejun <joon5006@naver.com>",
   "license": "MIT",
   "devDependencies": {
