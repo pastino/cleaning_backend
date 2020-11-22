@@ -1,0 +1,9 @@
+type SeeCompanyResponse {
+  ok: Boolean!
+  error: String
+  result: [Company]
+}
+
+type Query {
+  SeeCompany(id: String!): SeeCompanyResponse!
+}

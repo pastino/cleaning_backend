@@ -1,0 +1,39 @@
+type User {
+  id: ID! @id
+  userId: String
+  nickname: String
+  password: String
+  avatar: String
+  email: String @unique
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Banner {
+  id: ID! @id
+  imageUrl: String!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Cleaning {
+  id: ID! @id
+  title: String!
+  imageUrl: String!
+  companies: [Company!]! @relation(name: "CompanyOfCleaning" onDelete:CASCADE)
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Company {
+  id: ID! @id
+  name: String!
+  subTitle: String!
+  imageUrl: String
+  latitude: Float
+  longitude: Float
+  phoneNumber: String
+  cleaning: Cleaning @relation(name: "CompanyOfCleaning")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}

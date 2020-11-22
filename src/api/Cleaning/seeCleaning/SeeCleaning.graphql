@@ -1,0 +1,9 @@
+type SeeCleaningResponse {
+  ok: Boolean!
+  error: String
+  result: [Cleaning]
+}
+
+type Query {
+  SeeCleaning: SeeCleaningResponse!
+}

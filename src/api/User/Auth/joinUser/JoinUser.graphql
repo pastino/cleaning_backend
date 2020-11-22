@@ -6,9 +6,10 @@ type JoinUserResponse {
 
 type Mutation {
   JoinUser(
-    id: String!
-    email: String
+    email: String!
+    password: String!
+    id: String
     avatar: String
-    password: String
+    nickname: String
   ): JoinUserResponse!
 }

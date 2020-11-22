@@ -1,8 +1,0 @@
-type CreatePostResponse {
-  ok: Boolean!
-  error: String
-}
-
-type Mutation {
-  CreatePost(title: String!, imageUrl: String!): CreatePostResponse!
-}

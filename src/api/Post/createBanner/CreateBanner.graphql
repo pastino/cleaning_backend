@@ -1,0 +1,8 @@
+type CreateBannerResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  CreateBanner(imageUrl: String!): CreateBannerResponse!
+}

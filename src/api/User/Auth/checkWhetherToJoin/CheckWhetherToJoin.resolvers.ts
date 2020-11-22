@@ -8,6 +8,7 @@ export interface CheckWhetherToJoinResponse {
 }
 export interface CheckWhetherToJoinQueryArgs {
   id: string;
+  email: string;
 }
 
 const resolvers: Resolvers = {
@@ -16,9 +17,9 @@ const resolvers: Resolvers = {
       _,
       args: CheckWhetherToJoinQueryArgs
     ): Promise<CheckWhetherToJoinResponse> => {
-      const { id } = args;
+      const { email } = args;
       try {
-        const existingUser = await prisma.user({ userId: id });
+        const existingUser = await prisma.user({ email });
         if (!existingUser) {
           return {
             ok: true,

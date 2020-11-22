@@ -1,9 +1,0 @@
-type SeePostResponse {
-  ok: Boolean!
-  error: String
-  result: [Post]
-}
-
-type Query {
-  SeePost: SeePostResponse!
-}

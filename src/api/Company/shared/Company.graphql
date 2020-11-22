@@ -1,0 +1,12 @@
+type Company {
+  id: ID!
+  name: String!
+  subTitle: String!
+  imageUrl: String
+  latitude: Float
+  longitude: Float
+  phoneNumber: String
+  cleaning: Cleaning
+  createdAt: String
+  updatedAt: String
+}

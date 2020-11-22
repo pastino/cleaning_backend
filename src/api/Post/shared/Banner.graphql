@@ -1,6 +1,5 @@
-type Post {
+type Banner {
   id: ID!
-  title: String!
   imageUrl: String!
   createdAt: String
   updatedAt: String

@@ -1,29 +1,27 @@
 import { Resolvers } from "src/types/resolvers";
 import { prisma } from "../../../../generated/prisma-client";
 
-export interface CreatePostMutationArgs {
-  title: string;
+interface CreateBannerMutationArgs {
   imageUrl: string;
 }
 
-export interface CreatePostResponse {
+interface CreateBannerResponse {
   ok: boolean;
   error: string | null;
 }
 
 const resolvers: Resolvers = {
   Mutation: {
-    CreatePost: async (
+    CreateBanner: async (
       _,
-      args: CreatePostMutationArgs
-    ): Promise<CreatePostResponse> => {
-      const { imageUrl, title } = args;
+      args: CreateBannerMutationArgs
+    ): Promise<CreateBannerResponse> => {
+      const { imageUrl } = args;
       try {
-        const post = await prisma.createPost({
+        const banner = await prisma.createBanner({
           imageUrl,
-          title,
         });
-        if (!post) {
+        if (!banner) {
           return {
             ok: false,
             error: "게시물 생성이 실패하였습니다.",

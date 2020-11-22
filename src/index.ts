@@ -6,7 +6,7 @@ dotenv.config();
 const PORT: number | string = process.env.PORT || 4000;
 // const PLAYGROUND: string = "/playground";
 // const GRAPHQL_ENDPOINT: string = "/graphql";
-console.log(process.env.PORT);
+
 const appOptions: Options = {
   port: PORT,
   // playground: PLAYGROUND,

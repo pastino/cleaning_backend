@@ -1,0 +1,12 @@
+type UpdataeCleaningResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  UpdateCleaning(
+    id: String!
+    title: String
+    imageUrl: String
+  ): UpdataeCleaningResponse!
+}

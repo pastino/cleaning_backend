@@ -10,8 +10,6 @@ const s3 = new aws.S3({
   region: "ap-northeast-2",
 });
 
-console.log(process.env.AWS_ACCESS_ID);
-
 const upload = multer({
   storage: multerS3({
     s3,

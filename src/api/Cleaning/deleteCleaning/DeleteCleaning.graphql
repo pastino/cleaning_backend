@@ -1,0 +1,8 @@
+type DeleteCleaningResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  DeleteCleaning(id: String!): DeleteCleaningResponse!
+}

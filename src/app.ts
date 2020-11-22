@@ -2,6 +2,7 @@ import cors from "cors";
 import { GraphQLServer } from "graphql-yoga";
 import helmet from "helmet";
 import logger from "morgan";
+import { authenticateJwt } from "./passport";
 import schema from "./schema";
 import { uploadMiddleware, uploadController } from "./uploadPhoto";
 
@@ -15,6 +16,7 @@ class App {
   }
   private middlewares = (): void => {
     this.app.express.use(logger("dev"));
+    this.app.express.use(authenticateJwt);
     this.app.express.post("/api/upload", uploadMiddleware, uploadController);
     this.app.express.use(cors());
     this.app.express.use(helmet());

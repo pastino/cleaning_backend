@@ -1,20 +1,3 @@
-type User {
-  id: ID!
-  userId: String!
-  password: String
-  email: String
-  avatar: String
-  createdAt: String
-  updatedAt: String
-}
-
-type Banner {
-  id: ID!
-  imageUrl: String!
-  createdAt: String
-  updatedAt: String
-}
-
 type Cleaning {
   id: ID!
   title: String!

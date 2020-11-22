@@ -1,0 +1,9 @@
+type SeeBannerResponse {
+  ok: Boolean!
+  error: String
+  result: [Banner]
+}
+
+type Query {
+  SeeBanner: SeeBannerResponse!
+}

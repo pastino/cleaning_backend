@@ -5,5 +5,5 @@ type CheckWhetherToJoinResponse {
 }
 
 type Query {
-  CheckWhetherToJoin(id: String!): CheckWhetherToJoinResponse!
+  CheckWhetherToJoin(id: String, email: String): CheckWhetherToJoinResponse!
 }

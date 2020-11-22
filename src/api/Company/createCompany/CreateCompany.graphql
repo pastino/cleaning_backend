@@ -1,0 +1,16 @@
+type CreateCompanyResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  CreateCompany(
+    kindOfId: String!
+    name: String!
+    subTitle: String!
+    latitude: Float
+    longitude: Float
+    phoneNumber: String
+    imageUrl: String
+  ): CreateCompanyResponse!
+}

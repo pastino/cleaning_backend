@@ -1,0 +1,8 @@
+type CreateCleaningResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  CreateCleaning(title: String!, imageUrl: String!): CreateCleaningResponse!
+}

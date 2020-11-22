@@ -1,11 +1,13 @@
 import { Resolvers } from "src/types/resolvers";
 import { prisma } from "../../../../../generated/prisma-client";
+import bcrypt from "bcryptjs";
 
 export interface JoinUserMutationArgs {
-  email: string;
+  email: string | null;
   id: string;
   password: string | null;
   avatar: string | null;
+  nickname: string | null;
 }
 
 export interface JoinUserResponse {
@@ -20,24 +22,32 @@ const resolvers: Resolvers = {
       _,
       args: JoinUserMutationArgs
     ): Promise<JoinUserResponse> => {
-      const { id, avatar, email, password } = args;
+      const { id, avatar, email, password, nickname } = args;
+      const existingUser = await prisma.$exists.user({ email });
+
       try {
-        const user = await prisma.createUser({
-          userId: id,
-          avatar: avatar === "None" ? null : avatar,
-          email: email === "None" ? null : email,
-        });
-        if (!user) {
+        if (existingUser) {
           return {
             ok: false,
-            error: "Failed to join",
+            error: "user information already exists",
             token: null,
           };
         } else {
+          bcrypt.genSalt(10, async (err, salt) => {
+            bcrypt.hash(password, salt, async function(err, hash) {
+              await prisma.createUser({
+                userId: id,
+                avatar: avatar === "None" ? null : avatar,
+                email: email === "None" ? null : email,
+                nickname,
+                password: hash,
+              });
+            });
+          });
           return {
             ok: true,
             error: null,
-            token: "Comming Soon",
+            token: null,
           };
         }
       } catch (e) {
